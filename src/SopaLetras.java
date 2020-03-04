@@ -271,7 +271,7 @@ public class SopaLetras extends javax.swing.JFrame {
                         darClic(evt);//llama al metodo que debe ejecutarse cuando se da clic
                     }
                 });
-                Contenedor.add(letra[i][j]);//coloca la pasilla en el panel Sopa_de_letra
+                Contenedor.add(letra[i][j]);
             }
         }
     }
@@ -279,11 +279,11 @@ public class SopaLetras extends javax.swing.JFrame {
         if (!gano) {//verifica si gano el juego
             if (evt.getComponent().getBackground().equals(Color.WHITE))//verifica si la casilla esta de color blanco 
             {
-                evt.getComponent().setBackground(new java.awt.Color(51, 51, 255));//si esta de color blanco la pone de color azul
+                evt.getComponent().setBackground(new java.awt.Color(255, 255, 0));//cambiar a amarilla
                 //tachar();
             }else if(evt.getComponent().getName().equals(""))//pregunta si la casilla no tiene una letra de alguna palabra
             {
-                evt.getComponent().setBackground(Color.WHITE);//pone la casilla de color blanco
+                evt.getComponent().setBackground(Color.WHITE);//color blanco
             }
         }
     }
@@ -301,13 +301,13 @@ public class SopaLetras extends javax.swing.JFrame {
                 //iniciax=(int)(random.nextDouble()*15-1);
                 //iniciay=(int)(random.nextDouble()*15-1);
                 iniciay=unico2[i];
-                int estrae=0;
+                int poner=0;
                 if (iniciay+palabra[i].length()<15) {
                     
                     for (int j = iniciay; j < iniciay+palabra[i].length(); j++) {
-                        letra[iniciax][j].setText(palabra[i].substring(estrae, estrae+1));//estrae una letra de la palabra
+                        letra[iniciax][j].setText(palabra[i].substring(poner, poner+1));
                         letra[iniciax][j].setName("1");//pone el nombre a la casilla para que se sepa que hay va una letra de una palabra
-                        estrae++;//esto es para que se estraiga la siguiente letra de la palabra
+                        poner++;
                         inicioejey[i]=iniciay;
                         direccion[i]=true;
                     }
@@ -315,9 +315,9 @@ public class SopaLetras extends javax.swing.JFrame {
                 else if (iniciay-palabra[i].length()>0)
                 {
                         for (int j = iniciay; j >iniciay-palabra[i].length() ; j--) {
-                            letra[iniciax][j].setText(palabra[i].substring(estrae, estrae+1));
+                            letra[iniciax][j].setText(palabra[i].substring(poner, poner+1));
                             letra[iniciax][j].setName("1");
-                            estrae++;
+                            poner++;
                             inicioejey[i]=iniciay;
                             direccion[i]=false;
                         }
@@ -338,13 +338,13 @@ public class SopaLetras extends javax.swing.JFrame {
                 iniciay=unico[i];
                 //iniciax=(int)(random.nextDouble()*15-1);
                 iniciax=unico2[i];
-                int estrae=0;
+                int poner=0;
                 if (iniciax +palabra[i].length()<15) {
                     
                     for (int j = iniciax; j < iniciax+palabra[i].length(); j++) {
-                        letra[j][iniciay].setText(palabra[i].substring(estrae, estrae+1));//estrae una letra de la palabra
+                        letra[j][iniciay].setText(palabra[i].substring(poner, poner+1));
                         letra[j][iniciay].setName("1");//pone el nombre a la casilla para que se sepa que hay va una letra de una palabra
-                        estrae++;//esto es para que se estraiga la siguiente letra de la palabra
+                        poner++;
                         inicioejey[i]=iniciax;
                         direccion[i]=true;
                     }
@@ -352,9 +352,9 @@ public class SopaLetras extends javax.swing.JFrame {
             else if (iniciax-palabra[i].length()>0)
                 {
                         for (int j = iniciax; j >iniciax-palabra[i].length() ; j--) {
-                            letra[j][iniciay].setText(palabra[i].substring(estrae, estrae+1));
+                            letra[j][iniciay].setText(palabra[i].substring(poner, poner+1));
                             letra[j][iniciay].setName("1");
-                            estrae++;
+                            poner++;
                             inicioejey[i]=iniciax;
                             direccion[i]=false;
                         }
@@ -364,28 +364,6 @@ public class SopaLetras extends javax.swing.JFrame {
     }
     //checar
     public int[] NumerosSinRepeticiones(int repeticiones) {
-//        int numeros[]=new int[repeticiones];
-//        for (int i = 0; i < repeticiones; i++) {
-//            numeros[i]=-1;
-//        }
-//        Random random=new Random();
-//        boolean aux ;//informa si la fila esta o no repetida
-//        int numero=0;
-//        for (int x = 0; x < repeticiones; x++) 
-//        {
-//            aux = true;
-//            while (aux) {  
-//                aux=false;
-//                numero=(int)(random.nextDouble()*16-1);
-//                for (int j = 0; j < numeros.length; j++) {
-//                    if (numeros[j]==numero) {
-//                        aux=true;
-//                        break;
-//                    }
-//                }
-//            }
-//            numeros[x]=numero;
-//        }
         int numeros[]=new int[repeticiones];
         for(int i=0; i<repeticiones; i++){
             numeros[i]=i;
